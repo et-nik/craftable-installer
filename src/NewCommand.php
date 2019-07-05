@@ -50,13 +50,13 @@ class NewCommand extends Command
         $output->writeln('<info>Crafting Craftable :) ...</info>');
 
         $packages = [
-            "brackets/admin-ui",
-            "brackets/admin-listing",
-            "brackets/admin-auth",
-            "brackets/admin-translations",
-            "brackets/media",
-            "brackets/translatable",
-            "brackets/craftable",
+            "craftable/admin-ui",
+            "craftable/admin-listing",
+            "craftable/admin-auth",
+            "craftable/admin-translations",
+            "craftable/media",
+            "craftable/translatable",
+            "craftable/craftable",
         ];
 
         if ($input->getOption('dev')) {
@@ -64,12 +64,12 @@ class NewCommand extends Command
                 return '"'.$package.':dev-master"';
             }, $packages);
             array_push($commands, $composer.' require '.implode(' ', $packages));
-            array_push($commands, $composer.' require --dev "brackets/admin-generator:dev-master"');
-            array_push($commands, 'rm -rf vendor/brackets');
+            array_push($commands, $composer.' require --dev "craftable/admin-generator:dev-master"');
+            array_push($commands, 'rm -rf vendor/craftable');
             array_push($commands, $composer.' update --prefer-source');
         } else {
-            array_push($commands, $composer.' require "brackets/craftable"');
-            array_push($commands, $composer.' require --dev "brackets/admin-generator"');
+            array_push($commands, $composer.' require "craftable/craftable"');
+            array_push($commands, $composer.' require --dev "craftable/admin-generator"');
         }
 
         if (!$input->getOption('no-install')) {
