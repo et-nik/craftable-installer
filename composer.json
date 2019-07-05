@@ -1,5 +1,5 @@
 {
-    "name": "brackets/craftable-installer",
+    "name": "craftable/installer",
     "description": "Craftable application installer.",
     "keywords": ["craftable", "admin", "crud"],
     "license": "MIT",
